@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Khitanan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #002fff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+    h1 {
+      color: #2e7d32;
+    }
+    .child-name {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #1b5e20;
+    }
+    .date {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    .maps-link {
+      margin: 15px 0;
+    }
+    a.button {
+      background: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+    .share {
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      width: 90%;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 8px;
+    }
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Slide 0: Ucapan Pembuka Khidmat -->
+<div class="slide" id="slide0">
+  <div class="container">
+    <h1 style="animation: fadeIn 2s;">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</h1>
+    <p style="margin-top: 15px; font-size: 20px; font-weight: bold; animation: fadeIn 3s;">
+      Assalamu’alaikum Warahmatullahi Wabarakatuh
+    </p>
+    <p style="margin-top: 20px; font-size: 16px; line-height: 1.8; animation: fadeIn 4s;">
+      Segala puji bagi Allah SWT atas rahmat dan karunia-Nya. Dengan penuh syukur dan kerendahan hati, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara khitanan putra kami tercinta.
+      <br><br>
+      Kehadiran dan doa restu Bapak/Ibu akan menjadi kebahagiaan dan kehormatan bagi keluarga kami.
+    </p>
+  </div>
+</div>
+
+<div class="slide" id="slide1">
+  <div class="container">
+    <h1 style="animation: fadeIn 1.5s;">Undangan Khitanan</h1>
+    <div class="photo-wrapper" style="animation: fadeIn 2s;">
+      <img src="ar.jpeg" alt="Foto Anak" width="50%" style="border-radius: 10px; max-width: 80%;">
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide2">
+  <div class="container">
+    <div class="child-name" style="animation: fadeIn 2s;">Muhammad Arsya Alvaro</div>
+    <p style="margin-top: 20px; font-size: 16px; animation: fadeIn 3s;">
+      Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara khitanan putra kami.
+    </p>
+  
+
+
+  <div class="container">
+    <h2 style="animation: fadeIn 1.5s;">Lokasi Acara</h2>
+    <p style="animation: fadeIn 2s;">📌Kantor Desa Cangkuang Kulon, Bandung</p>
+    <a class="button" href="https://g.co/kgs/NkttUCC" target="_blank" style="animation: fadeIn 3s;">Lihat di Google Maps</a>
+  </div>
+</div>
+</div>
+
+<div class="slide" id="slide4">
+  <div class="container">
+    <h2 style="animation: fadeIn 1.5s;">Tanggal & Waktu</h2>
+    <p style="font-size: 18px; animation: fadeIn 2s;">
+      🗓️ Minggu, 29 Juni 2025<br>
+      ⏰ Pukul 10.00 WIB - Selesai
+    </p>
+    <h3 style="margin-top: 30px; animation: fadeIn 2.5s;">Hitung Mundur Menuju Acara</h3>
+    <p id="timer" style="
+      font-size: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      display: inline-block;
+      animation: fadeIn 3s;
+    ">Loading...</p>
+  </div>
+</div>
+
+<script>
+  // Hitung mundur ke 29 Juni 2025 pukul 10:00 WIB
+  const countdownDate = new Date("June 29, 2025 10:00:00 GMT+0700").getTime();
+  const timer = document.getElementById("timer");
+
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    timer.innerHTML = days + " hari " + hours + " jam " + minutes + " menit " + seconds + " detik";
+
+    if (distance < 0) {
+      clearInterval(x);
+      timer.innerHTML = "Acara sedang berlangsung!";
+    }
+  }, 1000);
+</script>
+</body>
+
+
+  <script>
+    function copyLink() {
+      const copyText = document.getElementById("link");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile
+      document.execCommand("copy");
+      document.getElementById("copied").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("copied").style.display = "none";
+      }, 3000);
+    }
+  </script>
+  <!-- Slide 6: Galeri Foto -->
+<div class="slide" id="slide6">
+  <div class="container">
+    <h2>Galeri Arsya</h2>
+    <div class="gallery">
+      <img src="ad.jpeg" width="30%" alt="Foto 1">
+      <img src="ar.jpeg"  width="30%" alt="Foto 2">
+      <img src="ad.jpeg"  width="30%" alt="Foto 3">
+      <img src="ab.jpeg"  width="30%" alt="Foto 4">
+      <img src="ad.jpeg"  width="30%" alt="Foto 5">
+      <img src="ab.jpeg"  width="30%" alt="Foto 6">
+      
+ 
+
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
